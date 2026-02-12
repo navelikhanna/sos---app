@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Voice Activated SOS</title>
+</head>
+<body>
+  <h2>🎙️ Voice Activation: Say "help", "emergency", or "stop"</h2>
+  <button id="startBtn">Start Listening</button>
+
+  <script>
+    const commands = ["help", "emergency", "stop"];
+
+    function startListening() {
+      const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+      recognition.lang = "en-US";
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+
+      recognition.start();
+
+      recognition.onresult = (event) => {
+        const spoken = event.results[0][0].transcript.toLowerCase();
+        console.log("🎤 Heard:", spoken);
+
+        for (const cmd of commands) {
+          if (spoken.includes(cmd)) {
+            console.log("✅ Valid command:", cmd);
+            fetch(`http://127.0.0.1:8080/command?msg=${encodeURIComponent(cmd)}`)
+              .then(() => console.log("📡 Sent to Processing!"))
+              .catch((err) => console.error("❌ Failed to send:", err));
+            return;
+          }
+        }
+
+        console.warn("⚠️ Command not recognized.");
+      };
+
+      recognition.onerror = (event) => {
+        console.error("❌ Speech recognition error:", event.error);
+      };
+    }
+
+    // Attach event after page loads
+    document.getElementById("startBtn").addEventListener("click", startListening);
+  </script>
+</body>
+</html>

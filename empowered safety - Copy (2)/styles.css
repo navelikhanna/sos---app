@@ -1,0 +1,207 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff0000, #000000);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.siren-icon {
+    font-size: 40px;
+    color: red;
+    display: block;
+    text-align: center;
+    margin: 10px auto;
+    animation: blink 1s infinite alternate;
+}
+
+/* Blinking Animation */
+@keyframes blink {
+    0% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+/* Container with Glassmorphism Effect */
+.container {
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(255, 0, 0, 0.6);
+}
+
+/* Input Styling */
+.input-group input {
+    width: calc(50% - 10px);
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+/* Placeholder Text */
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: bold;
+}
+
+/* Buttons */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* SOS Button with Glow Effect */
+.sos-btn {
+    background: red;
+    color: white;
+    box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.8);
+    animation: pulse 1.5s infinite;
+}
+
+/* SOS Button Pulsing Effect */
+@keyframes pulse {
+    0% { box-shadow: 0 0 10px rgba(255, 0, 0, 0.8); }
+    50% { box-shadow: 0 0 20px rgba(255, 0, 0, 1); }
+    100% { box-shadow: 0 0 10px rgba(255, 0, 0, 0.8); }
+}
+
+/* Police Button */
+.police-btn {
+    background: darkred;
+    color: white;
+    box-shadow: 0px 0px 10px rgba(255, 69, 69, 0.8);
+}
+
+/* Voice Button */
+.voice-btn {
+    background-color: #007bff;
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* Status Message */
+.status-message {
+    display: none;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(33, 37, 41, 0.7);
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Contact List */
+ul#contactList {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+ul#contactList li {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+}
+
+/* Delete Button */
+.delete-btn {
+    width: auto;
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    margin-top: 0;
+    margin-left: 10px;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* ============================================================
+   NEW STYLES FOR HEART RATE DETECTION
+   ============================================================ */
+
+/* Voice Section */
+.voice-section {
+    margin: 20px 0;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.voice-section p {
+    font-size: 14px;
+    opacity: 0.8;
+    margin: 10px 0;
+}
+
+/* Health Monitoring Section */
+.health-section {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Scan Button with Gradient */
+.scan-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0px 0px 15px rgba(102, 126, 234, 0.5);
+    transition: all 0.3s ease;
+}
+
+.scan-btn:hover {
+    box-shadow: 0px 0px 25px rgba(102, 126, 234, 0.8);
+    transform: translateY(-2px);
+}
+
+/* Health Results Display */
+.health-results {
+    margin-top: 15px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* Video Preview Styling */
+#hrVideo {
+    border: 2px solid rgba(102, 126, 234, 0.5);
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+}
